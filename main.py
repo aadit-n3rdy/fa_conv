@@ -41,13 +41,20 @@ for state in nfa.states:
     try:
         to_be_processed = set(nfa.transitions[state][""])
         lambdas = set()
+        print(len(to_be_processed))
         while len(to_be_processed) > 0:
             s = to_be_processed.pop()
             lambdas.add(s)
-            to_be_processed = to_be_processed.union(nfa.transitions[s][""])
+            print(lambdas)
+            try:
+                to_be_processed = to_be_processed.union(nfa.transitions[s][""])
+            except KeyError:
+                pass
         lambda_mapping[state] = frozenset({state}.union(lambdas))
     except KeyError:
         lambda_mapping[state] = frozenset({state})
+    print(f'{state}: {lambda_mapping[state]}')
+
 has_phi = False
 for state in nfa.states:
     transitions[state] = {}
