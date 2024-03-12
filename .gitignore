@@ -1,4 +1,5 @@
 env/
-.ipynb-checkpoints/
+.ipynb_checkpoints/
 *.png
 .jukit
+dfa.json
