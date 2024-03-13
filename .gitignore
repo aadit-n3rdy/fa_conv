@@ -3,3 +3,5 @@ env/
 *.png
 .jukit
 dfa.json
+venv/
+help/
